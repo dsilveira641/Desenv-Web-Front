@@ -1,0 +1,20 @@
+<div class="content">
+    <div class="card">
+        <div class="img">
+            <img src="/assets/attention-icon.svg" alt="">
+        </div>
+        <div class="title">
+            <p *ngIf="delete == true">Removido</p>
+            <p *ngIf="delete == false">Remover?</p>
+        </div>
+        <div class="paragraph">
+            <p *ngIf="delete == true">Registro 1 removido com sucesso!</p>
+            <p *ngIf="delete == false">Você tem certeza que deseja<br>remover este registro?</p>
+        </div>
+        <div class="button">
+            <button *ngIf="delete == true" class="sucess">OK</button>
+            <button *ngIf="delete == false" class="sucess">SIM</button>
+            <button *ngIf="delete == false" class="cancel">NÃO</button>
+        </div>
+    </div>
+</div>
