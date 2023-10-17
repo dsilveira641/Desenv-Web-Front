@@ -9,6 +9,7 @@ import { RegisterLoginComponent } from './pages/login/register-login/register-lo
 import { RedefinePasswordComponent } from './pages/login/redefine-password/redefine-password.component';
 import { DeleteComponent } from './modals/delete/delete.component';
 import { SaveComponent } from './modals/save/save.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SaveComponent } from './modals/save/save.component';
     RegisterLoginComponent,
     RedefinePasswordComponent,
     DeleteComponent,
-    SaveComponent
+    SaveComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
