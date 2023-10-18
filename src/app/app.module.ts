@@ -10,6 +10,7 @@ import { RedefinePasswordComponent } from './pages/login/redefine-password/redef
 import { DeleteComponent } from './modals/delete/delete.component';
 import { SaveComponent } from './modals/save/save.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { MainScreenComponent } from './components/main-screen/main-screen.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     RedefinePasswordComponent,
     DeleteComponent,
     SaveComponent,
-    SidebarComponent
+    SidebarComponent,
+    MainScreenComponent
   ],
   imports: [
     BrowserModule,

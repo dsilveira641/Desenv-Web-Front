@@ -1,0 +1,13 @@
+.content {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+
+    app-sidebar {
+        width: 20%;
+    }
+
+    app-main-screen {
+        width: 80%;
+    }
+}
