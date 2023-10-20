@@ -11,6 +11,8 @@ import { DeleteComponent } from './modals/delete/delete.component';
 import { SaveComponent } from './modals/save/save.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MainScreenComponent } from './components/main-screen/main-screen.component';
+import { UsersComponent } from './components/users/users.component';
+import { ConstructionsComponent } from './components/constructions/constructions.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { MainScreenComponent } from './components/main-screen/main-screen.compon
     DeleteComponent,
     SaveComponent,
     SidebarComponent,
-    MainScreenComponent
+    MainScreenComponent,
+    UsersComponent,
+    ConstructionsComponent
   ],
   imports: [
     BrowserModule,
