@@ -37,6 +37,7 @@
 
     .main {
         display: flex;
+        flex-direction: column;
 
         padding: 1%;
         padding-inline: 3%;
@@ -48,5 +49,57 @@
         border-radius: 8px;
         background-color: white;
 
+        .top {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            .left {
+                display: flex;
+                font-size: 1.6rem;
+                font-weight: 600;
+                color: #32325D;
+
+                i {
+                    font-size: 2rem;
+                }
+
+                p {
+                    margin-top: 2.5%;
+                }
+            }
+
+            .right {
+                display: flex;
+                height: 90%;
+                gap: 10%;
+
+                button {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    height: 60%;
+
+                    border-radius: 10px;
+                    border: none;
+                    outline: none;
+
+                    color: white;
+                    font-size: 1.1rem;
+                    font-weight: 500;
+                }
+
+                .include {
+                    background-color: #949494;
+                    width: 7rem;
+                }
+
+                .reload {
+                    background-color: #FB6340;
+                    width: 9rem;
+                }
+            }
+        }
     }
 }

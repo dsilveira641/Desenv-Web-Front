@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-main-screen',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./main-screen.component.scss']
 })
 export class MainScreenComponent {
+
+  @Input() title: string = 'Usuário' || 'Obra'; 
 
 }
