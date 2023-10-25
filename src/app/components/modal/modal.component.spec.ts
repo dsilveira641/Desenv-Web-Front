@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SaveComponent } from './save.component';
+import { ModalComponent } from './modal.component';
 
-describe('SaveComponent', () => {
-  let component: SaveComponent;
-  let fixture: ComponentFixture<SaveComponent>;
+describe('ModalComponent', () => {
+  let component: ModalComponent;
+  let fixture: ComponentFixture<ModalComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SaveComponent]
+      declarations: [ModalComponent]
     });
-    fixture = TestBed.createComponent(SaveComponent);
+    fixture = TestBed.createComponent(ModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -7,6 +7,17 @@ import { Component, Input } from '@angular/core';
 })
 export class MainScreenComponent {
 
-  @Input() title: string = 'Usuário' || 'Obra'; 
+  @Input() title: string = "Usuário" || "Obras";
+  
+  public modal: any = "";
+
+  constructor() {
+    if (this.title == 'Usuário') {       
+      this.modal = 'user-crud';
+    }
+    else {
+      this.modal = 'obra-crud';
+    }
+  }
 
 }

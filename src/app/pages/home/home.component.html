@@ -1,14 +1,15 @@
 <div class="content">
     <app-sidebar></app-sidebar>
+    
 
-    <app-main-screen>
+    <app-main-screen title="Usuário">
         <table class="table caption-top">
             <thead>
                 <tr class="text-start">
-                    <th scope="col">Código<i class="bi bi-caret-down-fill"></i></th>
-                    <th scope="col">Usuário<i class="bi bi-caret-down-fill"></i></th>
-                    <th scope="col">Email<i class="bi bi-caret-down-fill"></i></th>
-                    <th scope="col">Ações<i class="bi bi-caret-down-fill"></i></th>
+                    <th scope="col">Código<img src="/assets/arrow.svg"></th>
+                    <th scope="col">Usuário<img src="/assets/arrow.svg"></th>
+                    <th scope="col">Email<img src="/assets/arrow.svg"></th>
+                    <th scope="col">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -20,7 +21,7 @@
                         <button class="btn btn-secondary">
                             <i class="bi bi-pencil-square edit-action"></i>
                         </button>
-                        <button class="btn btn-danger">
+                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-delete">
                             <i class="bi bi-trash-fill delete-action"></i>
                         </button>
                     </td>
@@ -30,3 +31,40 @@
         </table>
     </app-main-screen>
 </div>
+
+<app-modal>
+    <div class="modal-header border-0">
+        <h5><strong>Usuário</strong></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body blue-text">
+
+        <div class="row">
+            <div class="col-6">
+                <label for="user-input" class="form-label"><strong>Usuário</strong></label>
+                <input type="text" class="form-control" id="user-input" placeholder="Informe o usuário...">
+            </div>
+            <div class="col-6">
+                <label for="user-email" class="form-label"><strong>Email</strong></label>
+                <input type="email" class="form-control" id="user-email" placeholder="exemplo@gmail.com">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6">
+                <label for="user-password" class="form-label"><strong>Senha</strong></label>
+                <input type="password" class="form-control" id="user-password" placeholder="Informe a sua senha...">
+            </div>
+            <div class="col-6">
+                <label for="user-confirm-password" class="form-label"><strong>Confirmar  Senha</strong></label>
+                <input type="password" class="form-control" id="user-confirm-password" placeholder="Informe a sua senha novamente...">
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer d-flex justify-content-end border-0">
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#save"><i class="bi bi-plus-lg"></i>SALVAR</button>
+        <button class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i>CANCELAR</button>
+    </div>
+</app-modal>
+
+<app-modal-delete></app-modal-delete>
