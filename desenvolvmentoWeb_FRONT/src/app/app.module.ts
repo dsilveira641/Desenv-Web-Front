@@ -15,7 +15,17 @@ import { ModalComponent } from './components/modal/modal.component';
 import { ModalDeleteComponent } from './components/modal-delete/modal-delete.component';
 import { ModalSaveComponent } from './components/modal-save/modal-save.component';
 import { ModalDeleteSuccessComponent } from './components/modal-delete/modal-delete-success/modal-delete-success.component';
+import { CURRENCY_MASK_CONFIG, CurrencyMaskConfig, CurrencyMaskModule } from 'ng2-currency-mask';
 
+export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
+  align: "left",
+  allowNegative: true,
+  decimal: ",",
+  precision: 2,
+  prefix: "R$ ",
+  suffix: "",
+  thousands: "."
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,9 +44,12 @@ import { ModalDeleteSuccessComponent } from './components/modal-delete/modal-del
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CurrencyMaskModule
   ],
-  providers: [],
+  providers: [
+    { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
