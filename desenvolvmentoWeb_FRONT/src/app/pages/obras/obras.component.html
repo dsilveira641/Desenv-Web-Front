@@ -1,0 +1,117 @@
+<div class="content">
+    <app-sidebar></app-sidebar>
+
+    <app-main-screen title="Obra">
+        <table class="table caption-top">
+            <thead>
+                <tr class="text-start">
+                    <th scope="col">Obra<img src="/assets/arrow.svg"></th>
+                    <th scope="col">PREVISÃO <br> DE ENTREGA<img class="flex-shrink-5" src="/assets/arrow.svg"></th>
+                    <th scope="col">VALOR <br> AGREGADO<img src="/assets/arrow.svg"></th>
+                    <th scope="col">ORÇAMENTO <br> AUTORIZADO<img src="/assets/arrow.svg"></th>
+                    <th scope="col">STATUS</th>
+                    <th scope="col">AÇÕES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of tableInfo">
+                    <!-- <th scope="row">{{item.id}}</th> -->
+                    <td>{{item.constructions}}</td>
+                    <td>{{item.delivery}}</td>
+                    <td>{{item.value}}</td>
+                    <td>{{item.budget}}</td>
+                    <td>{{item.status}}</td>
+                    <td class="gap-2 d-flex w-100">
+                        <button class="btn btn-secondary">
+                            <i class="bi bi-pencil-square edit-action"></i>
+                        </button>
+                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-delete">
+                            <i class="bi bi-trash-fill delete-action"></i>
+                        </button>
+                    </td>
+                            
+                </tr>
+            </tbody>
+        </table>
+    </app-main-screen>
+</div>
+
+<app-modal>
+    <div class="modal-header border-0">
+        <h5><strong>Obras</strong></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body blue-text">
+
+        <div class="row">
+            <div class="col-8">
+                <label for="obra-input" class="form-label"><strong>Obra</strong></label>
+                <input type="text" class="form-control" id="obra-input" placeholder="Informe a obra...">
+            </div>
+            <div class="col-4">
+                <label for="obra-date" class="form-label"><strong>Previsão de entrega</strong></label>
+                <input type="date" class="form-control" id="obra-date" placeholder="01/01/2023">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <label for="value-obra" class="form-label"><strong>Valor Agregado</strong></label>
+                <input type="text" class="form-control" id="value-obra" placeholder="R$1.000,00">
+            </div>
+            <div class="col-4">
+                <label for="orcamento-obra" class="form-label"><strong>Orçamento Autorizado</strong></label>
+                <input type="text" class="form-control" id="orcamento-obra" placeholder="R$1.000,00">
+            </div>
+            <div class="col-4">
+                <label for="status" class="form-label"><strong>Status</strong></label>
+                <input type="text" class="form-control" id="status" placeholder="ANDAMENTO">
+            </div>
+        </div>
+        <div class="row mt-5 p-3">
+            <table class="table table-striped">
+                <thead class="rounded">
+                    <tr>
+                        <td class="border"><strong class="blue-text fs-4">Material</strong></td>
+                        <td class="border"><strong class="blue-text fs-4">Unidade</strong></td>
+                        <td class="border text-center">
+                            <button class="bg-secondary text-white border-0 rounded w-100">
+                                <strong class="fs-4"><i class="bi bi-plus-lg"></i></strong>
+                            </button>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody class="border rounded">
+                    <tr>
+                        <td colspan="4">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <label for="material" class="form-label"><strong class="blue-text">Material</strong></label>
+                                    <input type="text" class="form-control" id="material" placeholder="Informe o material...">
+                                </div>
+                                <div>
+                                    <label for="unidade" class="form-label"><strong class="blue-text">Unidade</strong></label>
+                                    <input type="text" class="form-control" id="unidade" placeholder="Informe a unidade">
+                                </div>
+                                <div>
+                                    <button class="btn btn-secondary">
+                                        <i class="bi bi-plus-lg edit-action"></i>
+                                    </button>
+                                    <button class="btn btn-danger ms-1">
+                                        <i class="bi bi-trash-fill delete-action"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="modal-footer d-flex justify-content-end border-0">
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#save"><i class="bi bi-plus-lg"></i>SALVAR</button>
+        <button class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i>CANCELAR</button>
+    </div>
+</app-modal>
+
+<app-modal-delete></app-modal-delete>
