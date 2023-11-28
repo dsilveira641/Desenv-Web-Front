@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ObrasService } from 'src/app/services/obras.service';
 
 @Component({
   selector: 'app-obras',
@@ -6,6 +7,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./obras.component.scss']
 })
 export class ObrasComponent {
+
+  public construction = {
+    obra: {
+      CTR_Name: null,
+      CTR_DeliveryForecast: null,
+      CTR_AddedValue: null,
+      CTR_AuthorizedBudget: null,
+      CTR_Status: null,
+    },
+    materiais: [
+      this.rowMaterial()
+    ]
+  };
+
+  constructor(public service: ObrasService) {}
 
   public tableInfo = [
     {
@@ -41,4 +57,30 @@ export class ObrasComponent {
       status: 'ok'
     }
   ]
+
+  public sendLoginData() {
+    this.service.save(this.construction).subscribe({
+      next: (response) => {
+        console.log(response);
+      },
+      error: (error) => {
+        
+      }
+    });
+  }
+
+  public rowMaterial() {
+    return {
+      MTR_Name: null,
+      MTR_Unit: null
+    }
+  }
+
+  public addRowMaterial() {
+    this.construction.materiais.push(this.rowMaterial());
+  }
+
+  public removeRowMaterial(index: number) {
+    this.construction.materiais.splice(index, 1);
+  }
 }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -16,6 +17,7 @@ import { ModalDeleteComponent } from './components/modal-delete/modal-delete.com
 import { ModalSaveComponent } from './components/modal-save/modal-save.component';
 import { ModalDeleteSuccessComponent } from './components/modal-delete/modal-delete-success/modal-delete-success.component';
 import { CURRENCY_MASK_CONFIG, CurrencyMaskConfig, CurrencyMaskModule } from 'ng2-currency-mask';
+import { FormsModule } from '@angular/forms';
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   align: "left",
@@ -45,7 +47,9 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CurrencyMaskModule
+    CurrencyMaskModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig }
