@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-register-login',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class RegisterLoginComponent {
 
+  constructor(public router: Router) { 
+  }
+
+  public goToLogin() {
+    this.router.navigate(['/']);
+  }
 }

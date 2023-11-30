@@ -33,6 +33,10 @@
             font-size: 1.5rem;
             margin-top: 0.6%;
         }
+
+        .dropdown-toggle::after {
+            content: none;
+        }
     }
 
     .main {
