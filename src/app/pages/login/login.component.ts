@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 
@@ -16,7 +17,8 @@ export class LoginComponent {
 
   constructor(
     public router: Router,
-    public service: LoginService
+    public service: LoginService,
+    private matDialog: MatDialog
   ) {}
 
   public goToHome() {

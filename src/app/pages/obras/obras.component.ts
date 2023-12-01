@@ -30,6 +30,7 @@ export class ObrasComponent implements OnInit {
       this.rowMaterial()
     ]
   };
+  public tableInfo: any = [];
 
   private destroy$ = new Subject();
 
@@ -53,8 +54,6 @@ export class ObrasComponent implements OnInit {
           }
         });
   }
-
-  public tableInfo: any = [];
 
   public sendLoginData() {
     this.service.save(this.construction).subscribe({

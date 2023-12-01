@@ -6,7 +6,8 @@ import { environment } from 'src/environments/environment.development';
 @Injectable({
   providedIn: 'root'
 })
-export class BaseService {
+export class 
+BaseService {
 
   public user: any = JSON.parse(localStorage.getItem('user') || "{}");
   protected entity!: string;

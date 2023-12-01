@@ -21,6 +21,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddEditObraComponent } from './pages/obras/add-edit-obra/add-edit-obra.component';
+import { AddEditUserComponent } from './pages/home/add-edit-user/add-edit-user.component';
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   align: "left",
@@ -47,6 +48,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     ModalSaveComponent,
     ModalDeleteSuccessComponent,
     AddEditObraComponent,
+    AddEditUserComponent,    
   ],
   imports: [
     BrowserModule,
