@@ -9,7 +9,6 @@ import { environment } from 'src/environments/environment.development';
 export class 
 BaseService {
 
-  public user: any = JSON.parse(localStorage.getItem('user') || "{}");
   protected entity!: string;
 
   constructor(
@@ -38,16 +37,13 @@ BaseService {
   }
 
   private _headers() {
+    let user = JSON.parse(localStorage.getItem("user") || "");
     let header = {
       'Content-Type': 'application/json',
       'model': `${this.model}`,
-      'Authorization': ''
+      'Authorization': (user.token) ? "bearer " + user.token.token : ""
     }
 
-    console.log(this.user)
-    if (this.user.token) {
-      header['Authorization'] = `Bearer ${this.user.token.token}`
-    }
     return { headers: header };
   }
 }
