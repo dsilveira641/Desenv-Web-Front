@@ -7,18 +7,18 @@
         <div class="form-card">
             <div class="name-input">
                 <img src="/assets/email-icon.svg" alt="" class="icon-input">
-                <input type="text" class="input-login" placeholder="Nome completo">
+                <input [(ngModel)]="userData.USR_UserName" type="text" class="input-login" placeholder="Nome completo">
             </div>
             <div class="email-input">
                 <img src="/assets/email-icon.svg" alt="" class="icon-input">
-                <input type="text" class="input-login" placeholder="Celular ou Email">
+                <input [(ngModel)]="userData.USR_Email" type="text" class="input-login" placeholder="Celular ou Email">
             </div>
             <div class="password-input">
                 <img src="/assets/email-icon.svg" alt="" class="icon-input">
-                <input type="text" class="input-login" placeholder="Senha">
+                <input [(ngModel)]="userData.USR_Password" type="text" class="input-login" placeholder="Senha">
             </div>
             <div class="button-submit">
-                <button  (click)="goToLogin()">Cadastrar-se</button>
+                <button  (click)="createUser()">Cadastrar-se</button>
             </div>
         </div>
         <div class="footer-card">

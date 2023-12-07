@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
@@ -22,6 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddEditObraComponent } from './pages/obras/add-edit-obra/add-edit-obra.component';
 import { AddEditUserComponent } from './pages/home/add-edit-user/add-edit-user.component';
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
+import { MatIconModule } from '@angular/material/icon';
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   align: "left",
@@ -48,7 +50,8 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     ModalSaveComponent,
     ModalDeleteSuccessComponent,
     AddEditObraComponent,
-    AddEditUserComponent,    
+    AddEditUserComponent,   
+    ConfirmationDialogComponent 
   ],
   imports: [
     BrowserModule,
@@ -57,11 +60,15 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatDialogModule 
+    MatDialogModule,
+    MatIconModule 
   ],
   providers: [
     { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ]
 })
 export class AppModule { }

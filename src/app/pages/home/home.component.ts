@@ -3,6 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { Subject, takeUntil } from 'rxjs';
 import { LoginService } from 'src/app/services/login.service';
 import { AddEditUserComponent } from './add-edit-user/add-edit-user.component';
+import { UserService } from 'src/app/services/user.service';
+import { DialogService } from 'src/app/services/dialog.service';
 
 @Component({
   selector: 'app-home',
@@ -21,8 +23,10 @@ export class HomeComponent implements OnInit {
   private destroy$ = new Subject();
 
   constructor(
-    private service: LoginService ,
-    private dialog: MatDialog
+    private service: LoginService,
+    private dialog: MatDialog, 
+    private userService: UserService,
+    private dialogService: DialogService
   ) {
 
   }
@@ -39,7 +43,15 @@ export class HomeComponent implements OnInit {
           next: (response) => {
             this.tableInfo = response;
           }
-        })
+        });
+  }
+
+  delete() {
+    const confirmation = this.dialogService.confirmation("Mil meu comil teu");
+
+    confirmation.afterClosed().subscribe((isConfirmed: boolean) => {
+
+    });
   }
 
   openDialog(event: any) {
