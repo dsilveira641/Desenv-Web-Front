@@ -1,7 +1,7 @@
 <div class="content">
     <app-sidebar></app-sidebar>
 
-    <app-main-screen title="Obra">
+    <app-main-screen title="Usuários">
         <table class="table caption-top">
             <thead>
                 <tr class="text-start">
@@ -21,7 +21,7 @@
                         <button class="btn btn-secondary" (click)="openDialog(item)">
                             <i class="bi bi-pencil-square edit-action"></i>
                         </button>
-                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-delete">
+                        <button (click)="delete()" class="btn btn-danger">
                             <i class="bi bi-trash-fill delete-action"></i>
                         </button>
                     </td>

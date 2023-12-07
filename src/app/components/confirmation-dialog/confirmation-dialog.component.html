@@ -1,0 +1,42 @@
+<!-- <mat-dialog-content class="mt-2">
+  <p class="my-3 text-center" [innerHTML]="message"></p>
+</mat-dialog-content>
+<mat-dialog-actions align="center" class="mb-1">
+  <button color="accent" mat-flat-button class="me-2" [mat-dialog-close]="true">
+    <mat-icon>check_circle</mat-icon> Sim
+  </button>
+  <button
+    cdkFocusInitial
+    mat-flat-button
+    color="primary"
+    [mat-dialog-close]="false"
+  >
+    <mat-icon>cancel</mat-icon>
+    Não
+  </button>
+</mat-dialog-actions> -->
+
+<div class="modal fade" id="modal-delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+          <div class="modal-header border-0">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body blue-text d-flex justify-content-center text-center flex-column">
+              <div class="img">
+                  <img src="/assets/attention-icon.svg" alt="">
+              </div>
+              <div class="title">
+                  <h4><strong>Remover?</strong></h4>
+              </div>
+              <div class="paragraph">
+                  <p><strong>Você tem certeza que deseja<br>remover este registro?</strong></p>
+              </div>
+              <div class="modal-footer d-flex justify-content-center border-0">
+                  <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#delete-success">SIM</button>
+                  <button class="btn btn-danger" data-bs-dismiss="modal">NÃO</button>
+              </div>
+          </div>  
+      </div>
+  </div>
+</div>

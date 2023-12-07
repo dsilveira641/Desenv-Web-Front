@@ -29,6 +29,10 @@ BaseService {
     return this.http.post(this.apiUrl() + "/api/" + this.entity, data, this._headers());
   }
 
+  public delete(id: number): Observable<any> {
+    return this.http.delete(this.apiUrl() + "/api" + this.entity + id);
+  }
+
   public edit(id: number, data: any): Observable<any> {
     return this.http.put(this.apiUrl() + "/api/crud/update/" + id, data, this._headers());
   }
