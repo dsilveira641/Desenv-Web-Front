@@ -14,7 +14,12 @@ export class UserService extends BaseService {
   }
 
   public deleteUser(id: number): Observable<any> {
-    this.entity = 'crud/delete';
+    this.entity = 'crud/delete/';
     return super.delete(id);
+  }
+
+  public createUser(data: any): Observable<any> {
+    this.entity = 'crud/create/';
+    return super.save(data);
   }
 }

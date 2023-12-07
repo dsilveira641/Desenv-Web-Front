@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Subject, takeUntil } from 'rxjs';
 import { ObrasService } from 'src/app/services/obras.service';
 
@@ -30,7 +30,8 @@ export class AddEditObraComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private service: ObrasService
+    private service: ObrasService,
+    private dialogRef: MatDialogRef<AddEditObraComponent>
   ) {
     this.id = this.data.event.CTR_id ?? null;
   }
@@ -69,15 +70,15 @@ export class AddEditObraComponent implements OnInit {
     }
   }  
 
-  save() {
-    console.log("[save]", this.construction);
+  save() {    
     const method = (this.construction.obra.CTR_id) ? this.service.edit(this.construction.obra.CTR_id, this.construction.obra) : this.service.save(this.construction.obra);
 
     method
     .pipe(takeUntil(this.destroy$))
     .subscribe({
       next: (response) => {
-        console.log("[save]", response);        
+        console.log("[save]", response);    
+        this.dialogRef.close();    
       }
     });
   }

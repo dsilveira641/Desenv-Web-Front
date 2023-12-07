@@ -1,1 +1,35 @@
-<p>add-edit-user works!</p>
+<ng-container class="m-3">
+
+    <div class="modal-header border-0">
+        <h5><strong>Usuário</strong></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body blue-text">
+
+        <div class="row">
+            <div class="col-6">
+                <label for="user-input" class="form-label"><strong>Usuário</strong></label>
+                <input [(ngModel)]="userData.USR_UserName" type="text" class="form-control" id="user-input" placeholder="Informe o usuário...">
+            </div>
+            <div class="col-6">
+                <label for="user-email" class="form-label"><strong>Email</strong></label>
+                <input [(ngModel)]="userData.USR_Email" type="email" class="form-control" id="user-email" placeholder="exemplo@gmail.com">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6">
+                <label for="user-password" class="form-label"><strong>Senha</strong></label>
+                <input [(ngModel)]="userData.USR_Password" type="password" class="form-control" id="user-password" placeholder="Informe a sua senha...">
+            </div>
+            <div class="col-6">
+                <label for="user-confirm-password" class="form-label"><strong>Confirmar  Senha</strong></label>
+                <input [(ngModel)]="userData.USR_Password" type="password" class="form-control" id="user-confirm-password" placeholder="Informe a sua senha novamente...">
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer mt-3 d-flex justify-content-end border-0">
+        <button (click)="updateUser()" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#save"><i class="bi bi-plus-lg"></i>SALVAR</button>
+        <button (click)="close()" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i>CANCELAR</button>
+    </div>
+</ng-container>

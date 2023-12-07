@@ -4,6 +4,7 @@ import { ObrasService } from 'src/app/services/obras.service';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
 import { AddEditObraComponent } from './add-edit-obra/add-edit-obra.component';
+import { DialogService } from 'src/app/services/dialog.service';
 
 export enum StatusObra {
   Conluido = "Concluido",
@@ -36,7 +37,8 @@ export class ObrasComponent implements OnInit {
 
   constructor(
     public service: ObrasService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private dialogService: DialogService
   ) {}
 
   ngOnInit(): void {
@@ -72,6 +74,25 @@ export class ObrasComponent implements OnInit {
       width: '90vw',
       data: {
         event
+      }
+    })
+    .afterClosed()
+    .subscribe(resposne => this.listAll());
+  }
+
+  delete(obra: any) {            
+    const confirmation = this.dialogService.confirmation("Deseja excluir ?");
+
+    confirmation.afterClosed().subscribe((isConfirmed: boolean) => {
+      if (isConfirmed) {
+        this.service
+            .deleteObra(obra.CTR_id)
+            .pipe(takeUntil(this.destroy$))
+            .subscribe({
+              next: (response) => {
+                this.listAll();
+              }
+            })
       }
     });
   }

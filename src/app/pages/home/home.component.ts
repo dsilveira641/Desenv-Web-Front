@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
 
   public userData = {
     USR_UserName: null,
+    USR_Email: null,
     USR_Password: null
   };
 
@@ -35,6 +36,17 @@ export class HomeComponent implements OnInit {
     this.getData();
   }
   
+  public sendLoginData() {
+    this.userService.save(this.userData).subscribe({
+      next: (response) => {
+        this.getData();
+      },
+      error: (error) => {
+        
+      }
+    });
+  }
+
   private getData() {
     this.service
         .listAll()
@@ -46,20 +58,34 @@ export class HomeComponent implements OnInit {
         });
   }
 
-  delete() {
-    const confirmation = this.dialogService.confirmation("Mil meu comil teu");
+  delete(user: any) {    
+    
+    const confirmation = this.dialogService.confirmation("Deseja excluir ?");
 
     confirmation.afterClosed().subscribe((isConfirmed: boolean) => {
-
+      this.userService
+          .deleteUser(user.USR_Id)
+          .pipe(takeUntil(this.destroy$))
+          .subscribe({
+            next: (response) => {
+              this.getData();
+            }
+          })
     });
   }
 
   openDialog(event: any) {
     this.dialog.open(AddEditUserComponent, {
-      height: '90vh',
-      width: '90vw',
+      height: '45vh',
+      width: '70vw',
       data: {
         event
+      }
+    })
+    .afterClosed()
+    .subscribe({
+      next: () => {
+        this.getData();
       }
     });  
   }

@@ -21,7 +21,7 @@
                         <button class="btn btn-secondary" (click)="openDialog(item)">
                             <i class="bi bi-pencil-square edit-action"></i>
                         </button>
-                        <button (click)="delete()" class="btn btn-danger">
+                        <button (click)="delete(item)" class="btn btn-danger">
                             <i class="bi bi-trash-fill delete-action"></i>
                         </button>
                     </td>
@@ -41,28 +41,28 @@
         <div class="row">
             <div class="col-6">
                 <label for="user-input" class="form-label"><strong>Usuário</strong></label>
-                <input type="text" class="form-control" id="user-input" placeholder="Informe o usuário...">
+                <input [(ngModel)]="userData.USR_UserName" type="text" class="form-control" id="user-input" placeholder="Informe o usuário...">
             </div>
             <div class="col-6">
                 <label for="user-email" class="form-label"><strong>Email</strong></label>
-                <input type="email" class="form-control" id="user-email" placeholder="exemplo@gmail.com">
+                <input [(ngModel)]="userData.USR_Email" type="email" class="form-control" id="user-email" placeholder="exemplo@gmail.com">
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-6">
                 <label for="user-password" class="form-label"><strong>Senha</strong></label>
-                <input type="password" class="form-control" id="user-password" placeholder="Informe a sua senha...">
+                <input [(ngModel)]="userData.USR_Password" type="password" class="form-control" id="user-password" placeholder="Informe a sua senha...">
             </div>
             <div class="col-6">
                 <label for="user-confirm-password" class="form-label"><strong>Confirmar  Senha</strong></label>
-                <input type="password" class="form-control" id="user-confirm-password" placeholder="Informe a sua senha novamente...">
+                <input [(ngModel)]="userData.USR_Password" type="password" class="form-control" id="user-confirm-password" placeholder="Informe a sua senha novamente...">
             </div>
         </div>
 
     </div>
     <div class="modal-footer d-flex justify-content-end border-0">
-        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#save"><i class="bi bi-plus-lg"></i>SALVAR</button>
-        <button class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i>CANCELAR</button>
+        <button (click)="sendLoginData()" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#save"><i class="bi bi-plus-lg"></i>SALVAR</button>
+        <button  class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i>CANCELAR</button>
     </div>
 </app-modal>
 

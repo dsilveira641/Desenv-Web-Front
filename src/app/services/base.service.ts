@@ -29,7 +29,7 @@ BaseService {
   }
 
   public delete(id: number): Observable<any> {
-    return this.http.delete(this.apiUrl() + "/api" + this.entity + id);
+    return this.http.delete(this.apiUrl() + "/api/" + `${this.entity}${id}`, this._headers());
   }
 
   public edit(id: number, data: any): Observable<any> {
